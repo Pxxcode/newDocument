@@ -1,0 +1,47 @@
+Before:
+	lobby（大厅）
+	elaborate(阐述)
+	sarcasm(讽刺)
+	tier(级，层)
+	squad（小队）
+	hilarious(搞笑的)
+	pole（杆子）
+	bait（诱饵）
+	exclude（不包括）
+	laser（激光器）beam（光束）激光剑
+	backyard（后院）
+	tub（桶）
+	maid（女仆，佣人）
+	comedian（喜剧演员）
+	athlete（运动员）
+	headband（头带）
+	pot（壶，锅，把..载入盆中，射杀）
+	poop（like shit（V.），信息）
+	booty（屁股，战利品）
+	revive（恢复）
+	since（从..以后，因为）
+	crack(敲，裂纹)
+	flipped(快速翻转)
+	melee weapon(近战武器)
+	flattered（受宠若惊）
+	asymptomatic(无症状的)
+	take cautious strolls(谨慎慢行)
+	I don't know how well this is gonna work
+	here comes the difficult part which is
+	I can't describe how pround i am
+
+Spring Time:
+
+	annotation:注解
+	hints 提示 hints for sb.
+	routing路由
+	directly直接地
+	specific特定、个别、具体
+	standard标准
+	component组件
+	peek inside偷看里面
+	inherit继承
+	features特征
+	implicitly隐含地
+	generally通常地
+		

@@ -1,0 +1,12 @@
+{% extends 'accounts/main.html'%}
+
+{% block content %}
+<p><strong style="color: red">Warning: </strong>Are you sure you want to leave the <strong style="color: brown">{{group.name}}</strong>? If you exit, the related group's files will also be removed.</p>
+
+
+<form action="{% url 'quitgroup' request.session.name group.id%}" method="POST">
+    {% csrf_token %}
+    <a href="{% url 'mygroup' request.session.name %}" class="btn btn-sm btn-info">Cancel</a>
+    <input type="submit" name="confirm" value="Submit" class="btn btn-sm btn-warning">
+</form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'accounts/main.html'%}
+
+{% block content %}
+<a href="{% url 'leader' request.session.name %}">Click here and go back</a>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>ID</th>
+                    <th>Member</th>
+                    <th>Email</th>
+                </tr>
+                {% for i in members%}
+                    <tr>
+                        {% if i.authority != '2'%}
+                        <td>{{i.id}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.email}}</td>
+                        {% endif %}
+
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+<hr>
+<p><strong>{{count}} members</strong></p>
+
+
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'accounts/main.html'%}
+
+{% block content %}
+
+<div class="row">
+    <div class="col col-md-1">
+        <nav class="navbar bg-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Follower</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="col-md">
+        <div class="card card-body">
+            <form method="get">
+<!--                {{myFilter.form}}-->
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<hr>
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th></th>
+                    <th>Leader</th>
+                    <th>LeaderID</th>
+                    <th>GroupID</th>
+
+                    <th>Date</th>
+                    <th>Join</th>
+                </tr>
+<!--                {% for i in order%}-->
+<!--                    <tr>-->
+<!--                <td><a class="btn btn-sm btn-info" href="{% url 'customer' customer.name %}">View</a></td>-->
+<!--                        <td>{{i.product}}</td>-->
+<!--                        <td>{{i.note}}</td>-->
+<!--                        <td>{{i.date_created}}</td>-->
+<!--                        <td>{{i.status}}</td>-->
+<!--                        <td><a class="btn btn-sm btn-info" href="{% url 'update_customer' i.customer_id%}">Update</a></td>-->
+<!--                        <td><a class="btn btn-sm btn-danger" href="">Delete</a></td>-->
+<!--                    </tr>-->
+<!--                {% endfor %}-->
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'accounts/main.html'%}
+
+{% block content %}
+<p><strong style="color: red">Warning: </strong>Are you sure you want to delete the user  <strong style="color: brown">{{user.name}}</strong> ? This operation cannot be undone.</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <a href="{% url 'superuser' request.session.name %}" class="btn btn-sm btn-info">Cancel</a>
+    <input type="submit" name="confirm" value="Submit" class="btn btn-sm btn-warning">
+</form>
+
+{% endblock %}

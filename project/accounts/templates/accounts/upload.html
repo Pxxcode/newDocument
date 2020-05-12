@@ -1,0 +1,22 @@
+{% extends 'accounts/main.html'%}
+
+{% block content %}
+<div class="row">
+    <div class="col col-md-1">
+        <nav class="navbar bg-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'follower' request.session.name%}">Follower</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" name="submit">
+    {{message}}
+</form>
+</div>
+{% endblock %}

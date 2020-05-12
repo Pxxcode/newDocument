@@ -1,0 +1,14 @@
+{% extends 'accounts/main.html'%}
+
+{% block content %}
+
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <input type="submit" name="submit" value="Update" class="btn btn-sm btn-info">
+
+</form>
+
+<a href="{% url 'groupdoc' request.session.name %}" >{{message}}Click here and go back</a>
+{% endblock %}

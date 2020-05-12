@@ -1,0 +1,13 @@
+{% extends 'accounts/main.html'%}
+
+{% block content %}
+<p><strong style="color: red">Warning: </strong>Are you sure you want to delete  <strong style="color: brown">{{doc.doc}}</strong> ? It belong to <strong style="color: #2aabd2">{{doc.group}}</strong> group. This operation cannot be undone.</p>
+
+<form action="{% url 'removedoc' doc.id %}" method="POST">
+    {% csrf_token %}
+    <a href="{% url 'follower' request.session.name %}" class="btn btn-sm btn-info">Cancel</a>
+    <input type="submit" name="confirm" value="Submit" class="btn btn-sm btn-warning">
+
+</form>
+
+{% endblock %}

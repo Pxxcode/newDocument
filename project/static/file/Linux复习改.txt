@@ -1,0 +1,383 @@
+Linux作业一  概述与基本命令
+
+一、填空
+1.$
+2.#
+3.BSD
+4.Ctrl+D
+
+二、写出下面命令的功能
+1.查看moon.txt文件里面的内容
+2.创建并向moon.txt文件写入内容
+3.创建用户yanji
+4.为yanji用户创建密码
+5.查看cat命令的相关手册及用法
+6.查看用户信息
+
+三、写出指定功能的命令
+1.date
+2.clear
+3.rm note.txt
+4.su  
+5.date -s "2019-09-20 10:50"
+6.exit
+
+四、简答
+1.让更多人去完善这个系统，让一些爱好者能够了解并发展此系统，能够被普及使用
+2.（1）shutdown -h now
+   （2）date 0920112519.10
+
+【教师批改】
+三、4: 错（su -）
+
+成绩：A
+------------------------------------------
+
+Linux作业二
+
+一、填空
+1. 上一级，当前目录，主目录
+2./home/yanji
+3./root
+4.A
+5.d,l
+6.A
+7.查找含有q！的行
+8.查找含有UserDir的行
+
+二、写出下面功能的命令
+1.rm -rf ./*
+2.cat -n insec.c
+3.cp /etc/httpd/conf/httpd.conf .
+4.cp -r /var/named .
+5. ls -l | grep "^-" | wc -l    
+6.head -10 income.c | tail -5  
+7.grep "月" *.txt
+8.touch hill.txt sand.txt
+
+三、写出下面命令的功能
+1.将文件girl重命名为lady
+2.清空man目录下的所有文件，并且不提示
+3.删除man目录及其目录下的所有文件，并且不提示
+4.创建多级目录，先创建poem目录，再在poem目录里创建tang和song目录
+
+【教师批改】
+二、5: 错（ls -l /usr/bin|grep "^-"|wc -l）
+二、6: 错  (head -10 income.c | tail -6)
+
+成绩：A-
+
+------------------------------------------
+Linux 作业三   账号和文件操作（2）
+
+一、填空
+1.640
+2.A
+3.A
+4.A
+5.B
+6.B
+
+二、写出指定功能的命令（每小题只用一个命令）
+1.groupadd devel
+2.useradd -c 魏姬13688948589 -g devel weiji
+3.chmod g=w,o=w mail
+4.chmod a+x greet.sh
+5.tar -cf /tmp/yanji.tar.gz /home/yanji
+6.gzip -d /tmp/yanji.tar.gz
+7.tar -cf /tmp/yanji.tar.bz2 /home/yanji
+8.bzip2 -d /tmp/yanji.tar.bz2
+9.find /usr/share/doc -name index.html
+10.mkdir a.ssh && chmod 700 a.ssh
+
+三、简答
+1.userdel huji 删除该用户，但不删除该用户的文件
+userdel -r huji 删除该用户，同时删除该用户的文件
+2./bin/bash为可登录系统Shell
+
+【教师批改】
+一、2: 错 D
+二、5: 错 ( tar -czf  /tmp/yanji.tar.bz2  /home/yanji)
+二、6: 错 (tar -xzvf /tmp/yanji.tar.gz)
+二、7: 错 (tar -cjf /tmp/yanji/tar.bz2 /home/yanji)
+二、8: 错 (tar -xjvf /tmp/yanji.tar.bz2)
+二、10: 错 (mkdir -m 700 ~/.ssh)
+
+成绩：C-
+------------------------------------------
+Linux 作业四   存储和软件包管理
+
+一、填空
+1.sdb2
+2.C
+3.A
+
+二、写出下面功能的命令（每一小题只用一个命令）
+1.fdisk -l
+2.fdisk /dev/sdb
+3.mkfs -t ext4 /dev/sdb1
+4.mount /dev/cdrom /mnt/cdrom
+5.umout /dev/cdrom
+6.mount /dev/sdb1 /home2
+7.rpm -q vsftpd
+8.yum list | grep ^php
+9.rpm -vih tree-1.5.3-2.e16.x86_64.rpm
+10.yum install tree
+11.yun remove tree
+12.systemctl start http
+13.systemctl restart network
+14.systemctl stop firewalld
+15.chkconfig mysqld on
+16.chkconfig named off
+
+三、简答
+1.写出自动挂载光驱的步骤
+(1)#vi /etc/selinux/config
+设置SELinux=disabled
+(2)自动挂载光盘
+#vi /etc/fstab
+最后一行添加：/dev/cdrom   /mnt/cdrom  iso9660  defaults  0 0
+#mkdir -p /mnt/cdrom
+#mount -a
+(3)
+#cd /etc/yum.repos.d/
+#ls /mnt/cdrom/.discinfo
+#cat /mnt/cdrom/.disinfo
+复制第一行长数据
+#vi local.repo
+输入i
+输入一下内容：
+	[local]
+	mediaid=粘贴刚才复制的长数据
+	name=local repo
+	baseurl=file:///mnt/cdrom
+	enabled=1
+	gpgcheck=0
+Esc+:wq(保存退出)
+
+【教师批改】
+一、1: 错 (/dev/sdb2)
+二、5: 错 (umount /mnt/cdrom)
+二、8: 错 (rpm -qa | grep php)
+三、1 只需要步骤(2)。
+
+成绩：B
+
+------------------------------------------
+Linux 作业五   进程和计划任务
+
+一、填空
+1.从at.txt中读入任务，并在19:31执行该任务
+2.B
+3.B
+4.A
+5.B
+6.A
+7.正在睡眠的进程
+8.僵死进程
+9.B
+10.A
+11.B
+
+二、写出下面功能的命令
+1.ps -ax
+2.top
+3.crontab tasks.txt
+4.crontab -ri
+
+三、设计周期性计划任务的记录
+1. 10 03 * * * sh /root/back.sh
+2. 30 18 1,16 * * sh /root/ottf.sh
+3. 00 00 1 1,7 * sh /root/repo.sh
+
+【教师批改】
+一、10: 错  B
+一、11: 错  A
+三、1,三、2,三、3 去掉sh。
+
+成绩：C
+------------------------------------------
+Linux  作业六  shell环境和文本工具
+
+一、填空
+1.C
+2.A
+3.A
+
+二、写出下面功能的命令行
+1.alias rm="rm -i"
+2.alias
+3.history
+4.echo "11  薛莉  文员  4800" | cat >> income
+5.ls -l /usr/bin | grep "^-" | wc -l
+6.grep ^月 a.txt
+7.awk 'BEGIN {OFS = "\t"} {print $2,$3}' income
+8.$ sort -nrk4 income | head -3
+
+三、写出下面各小题最后一条命令的输出
+1.$ echo $x
+  100+300
+
+2.$ echo $x
+  400
+
+3.$ echo $d
+  2019-11-05
+
+4.$ echo "user name:$USER"
+  user name:yanji
+
+5.$ echo <html>
+  -bash: syntax error near unexpected token `newline'
+
+四、简答
+1.因为在当前目录下，搜索PATH到最后都找不到该命令，则返回-bash: hello: command not found。
+2.应该把hello移到/bin目录下，直接执行hello就可以运行该文件。
+
+
+
+【教师批改】
+一、3: 错  B
+四、1(2): 有错  (bin目录)
+
+成绩：A-
+
+------------------------------------------
+Linux 作业七  shell程序设计
+
+一、填空
+1.查找脚本程序解释器为/bin/bash
+2.A
+3.B
+4.C
+5.B
+6.A
+
+二、解释下面语句行的功能
+1.如果命令行变元个数小于2就返回结果为1，反之前一个命令为假，则
+该命令就不执行
+2.判断是否存在sun文件，为假时就执行touch sun，创建sun文件
+3.判断是否存在moon文件，为真是就查看其中的内容，为假时就不执行
+
+三、下面脚本已具执行的权限，写出它们的输出
+1.（1）50 （2）45
+2.DATE： 2019-11-11.
+3.file hello.c not found.
+
+四、脚本设计
+脚本add3代码：
+#！ /bin/bash
+declare -i s=0
+while read name one two three
+do
+	s=$one+$two+$three
+	echo $name $s
+done < stu01.txt
+
+# ./add3
+余一呼 90
+赵一鸣 80
+何一凡 70
+梅一弄 75
+黄素 85
+罗雀 65
+
+
+【教师批改】
+
+成绩：A
+------------------------------------------
+Linux 作业八   Linux环境下的C编程
+
+一、填空
+1.B
+2.C
+3.A
+4.A
+5.B
+6.A
+7.A
+8.B
+9.A
+10.清除编译
+
+二、简答
+1.
+（1）Hello, world.
+（2）标准输出
+
+2.
+（1）编写C文件，并在文件中写入代码，如hello.c
+（2）利用gcc命令使 .c文件变为 .o 文件，如 gcc hello.c -c，结果为hello.o
+（3）还是利用gcc命令来编译 .o 文件，并命名为其他文件，如 gcc hello.o -o hello
+（4）在该文件夹中执行文件，如 ./hello，就可以得到对应的编译结果。
+
+【教师批改】
+一、4: 错  C
+二、2: 错
+1.下载源码包并解包：	tar xzvf xxx.tar.gz
+2.进入源码目录：	cd xxx
+3.运行配置脚本：	./configure
+4.编译源文件：		make
+5.送文件到适当位置：	make install
+
+成绩：B-
+
+------------------------------------------
+Linux作业九	Linux服务基础
+
+一、填空
+1.C
+2.C
+3.chkconfig --list httpd
+4.service httpd start
+5.B
+6.index.html
+7.命令，数据
+8.B
+9.ftp，空
+10.C
+11.B
+12.B
+13./etc/sysconfig/network-scripts/ifcfg-eth0
+
+二、简答
+1.如何让浏览器访问linux服务器192.168.139.3中目录/usr/share/doc/libxm12-devel-2.7.6下的首页文档？
+file:////usr/share/doc/libxm12-devel-2.7.6/index.html
+
+2.试述FTP协议的binary和ascii两种模式的不同
+
+ASCII模式和BINARY模式的区别是回车换行的处理，binary模式不对数据进行任何处理，
+ASCII模式将回车换行转换为本机的回车字符，比如Unix下是\n,Windows下是\r\n，Mac下是\r。
+BINARY模式用来传送可执行文件，压缩文件和图片文件。
+如果用ASCII模式传，可能会显示一堆乱码，必须重新用BINARY模式传。
+
+
+【教师批改】
+二、1: 错
+1.开启httpd服务
+# service httpd start
+2.关闭防火墙
+# service iptables start
+3.进入/var/www目录
+# cd /var/www
+4.建立网页
+# cat > index.html
+<h1>
+这是一个放在/var/www/html/外的网站
+</h1>
+5.查找网站主页
+# find /usr/share/doc -name index.html
+/usr/share/doc/libxml2-devel-2.7.6/index.html
+6.修改配置文件
+# vi /etc/httpd/conf/httpd.conf
+:/Alias
+Alias /linux_html/ "/usr/share/doc/libxml2-devel-2.7.6"
+7.重启
+reboot
+8.在浏览器网址中输入http://192.168.139.3/linux_html/
+一、12. B  D。
+
+成绩：B
+
+------------------------------------------

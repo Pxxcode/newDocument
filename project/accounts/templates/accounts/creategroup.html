@@ -1,0 +1,14 @@
+{% extends 'accounts/main.html'%}
+
+{% block content %}
+    <form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" name="submit" value="Submit" class="btn btn-sm btn-info">
+</form>
+<br>
+        {% if message %}
+            {{message}}
+        {% endif %}
+            <a href="{% url 'leader' request.session.name %}">Click here and go back</a>
+{% endblock %}

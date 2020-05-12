@@ -1,0 +1,83 @@
+{% extends 'accounts/main.html'%}
+
+{% block content %}
+<div class="row">
+    <div class="col col-md-6">
+        <div class="card text-center mb-3" id="own-message">
+                <div class="card-header text-white" style="background-color: #7abecc">
+                    <h5 class="card-title">Own Message</h5>
+                </div>
+                <div class="card-body text-dark">
+                    <h3>Name:{{request.session.name}}</h3>
+                    <h3>Email:{{superuser.email}}</h3>
+                </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card text-center mb-3" id="total-leader">
+                <div class="card-header" style="background-color: #7abecc">
+                    <h5 class="card-title text-white">Total Leader</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title" style="text-align: center;padding: 10px">{{leader_counut}}</h3>
+                </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card text-center mb-3" id="total-Follower">
+                <div class="card-header" style="background-color: #7abecc">
+                    <h5 class="card-title text-white ">Total Follower</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title" style="text-align: center;padding: 10px">{{follower_count}}</h3>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+<hr><br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <form method="get">
+                {{myFilter.form}}
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<hr><br>
+<div class="row">
+
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Password</th>
+                    <th>Authority</th>
+                    <th>CreateDate</th>
+                    <th>Remove</th>
+                </tr>
+                {% for i in user%}
+                <tr>
+                    <th>{{i.id}}</th>
+                    <th>{{i.name}}</th>
+                    <th>{{i.password}}</th>
+                    <th>{% if i.authority == '2'%}Leader{% else%}Follower{% endif %}</th>
+                    <th>{{i.date_created}}</th>
+                    <th><a class="btn btn-sm btn-danger" href="{% url 'removeuser' request.session.name i.id%}">Remove</a></th>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

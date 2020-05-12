@@ -1,0 +1,15 @@
+{% extends 'accounts/main.html'%}
+
+{% block content %}
+            <form method="POST" action="">
+                {% csrf_token %}
+
+                <h5>文件名：{{form.docname}}</h5>
+                <h5>文件ID：{{form.id}}</h5>
+                <h5>文 件：{{form.doc}}</h5>
+                <button class="btn btn-primary" type="submit">Download</button>
+                <a href="{% url 'follower' request.session.name %}" class="btn btn-primary">Back</a>
+            </form>
+
+
+{% endblock %}
